@@ -4,12 +4,12 @@ import { Button } from "~/components/ui/button";
 const HomePage = () => (
   <main>
     <section className="flex min-h-[100dvh] items-center justify-center">
-      <form action={addTodo}>
+      {/* <form action={addTodo}>
         <Button type="submit">Submit</Button>
       </form>
       <form action={updateTodo}>
         <Button type="submit">Update</Button>
-      </form>
+      </form> */}
     </section>
   </main>
 );
