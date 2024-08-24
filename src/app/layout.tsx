@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Macondo } from "next/font/google";
 import "~/style/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const macondo = Macondo({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-handwritten",
+});
 
 export const metadata: Metadata = {
   title: "Next TODO",
@@ -17,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`bg-slate-50 ${inter.className} ${macondo.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
