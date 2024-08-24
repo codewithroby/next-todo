@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.handwritten {
+  font-family: var("--font-handwritten");
+}
