@@ -3,6 +3,6 @@ import { twMerge } from "tailwind-merge";
 
 const cn = (...classList: ClassValue[]) => twMerge(clsx(classList));
 
-const isOdd = (input: number) => input % 2 !== 0;
+const isOdd = (input: number = 0) => input % 2 !== 0;
 
 export { cn, isOdd };
