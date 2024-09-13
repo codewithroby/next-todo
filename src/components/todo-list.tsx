@@ -29,7 +29,7 @@ const TodosList = async ({ selectFrom = 0 }) => {
 const TodoListSkeleton = () => (
   <div className="container max-w-4xl">
     <div className="flex flex-col rounded-md bg-white shadow-sm">
-      {[...Array(3)].map((_, index) => (
+      {[...Array(5)].map((_, index) => (
         <div
           className={cn("p-4", {
             "bg-slate-50": isOdd(index),
