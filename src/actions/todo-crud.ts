@@ -24,8 +24,18 @@ const updateTodo = async () => {
       oldTimestamp: todos.createdAt,
       newTimestamp: todos.updatedAt,
     });
-  console.log(updatedTodo);
   return updatedTodo;
 };
 
-export { addTodo, updateTodo };
+const getAll = async () => {
+  const allTodos = await db
+    .select({
+      id: todos.id,
+      title: todos.title,
+      description: todos.description,
+    })
+    .from(todos)
+    .execute();
+};
+
+export { addTodo, updateTodo, getAll };
