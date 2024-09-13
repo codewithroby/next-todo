@@ -23,7 +23,7 @@ const updateTodo = async () =>
       newTimestamp: todos.updatedAt,
     });
 
-const getAll = async (page: number = 0) =>
+const getAll = async (lastPageTodoId: number = 0) =>
   await db
     .select({
       id: todos.id,
@@ -31,7 +31,7 @@ const getAll = async (page: number = 0) =>
       description: todos.description,
     })
     .from(todos)
-    .where(gt(todos.pagination_id, page))
+    .where(gt(todos.pagination_id, lastPageTodoId))
     .limit(5)
     .execute();
 
