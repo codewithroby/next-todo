@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS "todos" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"test" varchar,
 	"title" varchar(256),
 	"description" text,
 	"completed" boolean DEFAULT false,
