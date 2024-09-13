@@ -1,6 +1,8 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+const cn = (...classList: ClassValue[]) => twMerge(clsx(classList));
+
+const isOdd = (input: number) => input % 2 !== 0;
+
+export { cn, isOdd };
