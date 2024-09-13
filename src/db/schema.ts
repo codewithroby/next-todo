@@ -10,7 +10,7 @@ import {
 
 export const todos = pgTable("todos", {
   id: uuid("id").primaryKey().defaultRandom(),
-  pid: serial("pagination_id"),
+  pagination_id: serial("pagination_id"),
   title: varchar("title", { length: 256 }),
   description: text("description"),
   completed: boolean("completed").default(false),
