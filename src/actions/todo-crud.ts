@@ -36,6 +36,7 @@ const getAll = async () => {
     })
     .from(todos)
     .execute();
+  return allTodos;
 };
 
 export { addTodo, updateTodo, getAll };
