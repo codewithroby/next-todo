@@ -32,6 +32,7 @@ const getAll = async (page: number = 0) =>
     })
     .from(todos)
     .where(gt(todos.pagination_id, page))
+    .limit(5)
     .execute();
 
 export { addTodo, updateTodo, getAll };
