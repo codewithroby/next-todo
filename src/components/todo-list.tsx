@@ -1,8 +1,8 @@
 import * as todos from "~/actions/todo-crud";
 import { cn, isOdd } from "~/lib/utils";
 
-const TodosList = async () => {
-  const todosList = await todos.getAll();
+const TodosList = async ({ selectFrom = 0 }) => {
+  const todosList = await todos.getAll(selectFrom);
 
   return (
     <div className="container max-w-4xl">
@@ -15,7 +15,7 @@ const TodosList = async () => {
             key={index}
           >
             <div className="flex gap-4">
-              <span className="max-w-12">{index}</span>
+              <span className="w-10">{index + 1}</span>
               <span className="w-1/4">{todo.title}</span>
               <p className="flex-1">{todo.description}</p>
             </div>

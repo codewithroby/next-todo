@@ -1,5 +1,5 @@
 {
-  "id": "33bf6b96-e173-4780-91ec-694c55bd2d57",
+  "id": "79942038-3821-45f2-a0b3-7d2092c0815d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -15,11 +15,11 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "test": {
-          "name": "test",
-          "type": "varchar",
+        "pagination_id": {
+          "name": "pagination_id",
+          "type": "serial",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "title": {
           "name": "title",

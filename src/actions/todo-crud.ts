@@ -1,6 +1,6 @@
 "use server";
 
-import { eq, gt } from "drizzle-orm";
+import { count, eq, gt } from "drizzle-orm";
 import { db } from "~/db";
 import { todos } from "~/db/schema";
 
@@ -35,4 +35,6 @@ const getAll = async (lastPageTodoId: number = 0) =>
     .limit(5)
     .execute();
 
-export { addTodo, updateTodo, getAll };
+const getTotal = async () => await db.select({ count: count() }).from(todos);
+
+export { addTodo, updateTodo, getAll, getTotal };
