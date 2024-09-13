@@ -1,4 +1,5 @@
-import { TodosList } from "~/components/todo-list";
+import { Suspense } from "react";
+import { TodoListSkeleton, TodosList } from "~/components/todo-list";
 
 const HomePage = () => (
   <main>
@@ -6,7 +7,9 @@ const HomePage = () => (
       <h1 className="handwritten text-4xl font-semibold uppercase">
         Next TODO
       </h1>
-      <TodosList />
+      <Suspense fallback={<TodoListSkeleton />}>
+        <TodosList />
+      </Suspense>
     </section>
   </main>
 );
