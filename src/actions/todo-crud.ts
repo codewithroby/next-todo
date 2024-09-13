@@ -1,19 +1,17 @@
 "use server";
 
-import { eq } from "drizzle-orm";
+import { eq, gt } from "drizzle-orm";
 import { db } from "~/db";
 import { todos } from "~/db/schema";
 
-const addTodo = async () => {
-  const newTodo = await db.insert(todos).values({
+const addTodo = async () =>
+  await db.insert(todos).values({
     title: "Test Todo 1",
     description: "Test Description 1",
   });
-  return newTodo;
-};
 
-const updateTodo = async () => {
-  const updatedTodo = await db
+const updateTodo = async () =>
+  await db
     .update(todos)
     .set({
       title: "Updated Title 2",
@@ -24,19 +22,16 @@ const updateTodo = async () => {
       oldTimestamp: todos.createdAt,
       newTimestamp: todos.updatedAt,
     });
-  return updatedTodo;
-};
 
-const getAll = async () => {
-  const allTodos = await db
+const getAll = async (page: number = 0) =>
+  await db
     .select({
       id: todos.id,
       title: todos.title,
       description: todos.description,
     })
     .from(todos)
+    .where(gt(todos.pagination_id, page))
     .execute();
-  return allTodos;
-};
 
 export { addTodo, updateTodo, getAll };
