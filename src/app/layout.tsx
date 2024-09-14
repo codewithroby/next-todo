@@ -23,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header />
       <body className={`bg-slate-50 ${inter.className} ${macondo.variable}`}>
+        <Header />
         {children}
       </body>
     </html>
