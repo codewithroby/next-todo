@@ -3,7 +3,7 @@ interface Link {
   href: string;
 }
 
-const LINKS: Link[] = [
+export const LINKS: Link[] = [
   { title: "Home", href: "/" },
   { title: "Add New Todo", href: "/add-new" },
 ];
