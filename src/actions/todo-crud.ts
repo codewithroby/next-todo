@@ -27,7 +27,7 @@ const updateTodo = async () =>
       newTimestamp: todos.updatedAt,
     });
 
-const getAll = async (lastPageTodoId: number = 0) =>
+const getAll = async () =>
   await db
     .select({
       id: todos.id,
