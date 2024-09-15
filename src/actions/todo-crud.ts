@@ -7,12 +7,18 @@ import { db } from "~/db";
 import { todos } from "~/db/schema";
 
 import { AddTodoFormSchemaType } from "~/lib/types";
+import { revalidatePath } from "next/cache";
 
 const addTodo = async (values: z.infer<AddTodoFormSchemaType>) =>
-  await db.insert(todos).values({
-    title: values.title,
-    description: values.description,
-  });
+  await db
+    .insert(todos)
+    .values({
+      title: values.title,
+      description: values.description,
+    })
+    .then(() => {
+      revalidatePath("/", "page");
+    });
 
 const updateTodo = async () =>
   await db
