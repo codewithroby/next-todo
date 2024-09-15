@@ -1,8 +1,8 @@
 import * as todos from "~/actions/todo-crud";
 import { cn, isOdd } from "~/lib/utils";
 
-const TodosList = async ({ selectFrom = 0 }) => {
-  const todosList = await todos.getAll(selectFrom);
+const TodosList = async () => {
+  const todosList = await todos.getAll();
 
   return (
     <div className="container max-w-4xl">

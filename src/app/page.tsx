@@ -9,7 +9,7 @@ const HomePage = () => (
       </h1>
 
       <Suspense fallback={<TodoListSkeleton />}>
-        <TodosList selectFrom={0} />
+        <TodosList />
       </Suspense>
     </section>
   </main>
