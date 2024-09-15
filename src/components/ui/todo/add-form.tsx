@@ -16,7 +16,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { addTodoFormSchema, AddTodoFormSchemaType } from "~/lib/types";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 const AddTodoForm = () => {
