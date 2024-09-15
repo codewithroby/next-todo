@@ -1,13 +1,17 @@
 "use server";
 
-import { count, eq, gt } from "drizzle-orm";
+import { z } from "zod";
+
+import { count, eq, desc } from "drizzle-orm";
 import { db } from "~/db";
 import { todos } from "~/db/schema";
 
-const addTodo = async () =>
+import { AddTodoFormSchemaType } from "~/lib/types";
+
+const addTodo = async (values: z.infer<AddTodoFormSchemaType>) =>
   await db.insert(todos).values({
-    title: "Test Todo 1",
-    description: "Test Description 1",
+    title: values.title,
+    description: values.description,
   });
 
 const updateTodo = async () =>
@@ -31,7 +35,7 @@ const getAll = async (lastPageTodoId: number = 0) =>
       description: todos.description,
     })
     .from(todos)
-    .where(gt(todos.pagination_id, lastPageTodoId))
+    .orderBy(desc(todos.pagination_id))
     .limit(5)
     .execute();
 
