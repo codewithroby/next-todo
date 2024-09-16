@@ -33,6 +33,18 @@ const updateTodo = async () =>
       newTimestamp: todos.updatedAt,
     });
 
+const deleteTodo = async (id: string) =>
+  await db
+    .delete(todos)
+    .where(eq(todos.id, id))
+    .returning({
+      deletedId: todos.id,
+    })
+    .then((data) => {
+      revalidatePath("/", "page");
+      return data;
+    });
+
 const getAll = async (page: number = 0) =>
   await db
     .select({
@@ -48,4 +60,4 @@ const getAll = async (page: number = 0) =>
 
 const getTotal = async () => await db.select({ count: count() }).from(todos);
 
-export { addTodo, updateTodo, getAll, getTotal };
+export { addTodo, updateTodo, deleteTodo, getAll, getTotal };
