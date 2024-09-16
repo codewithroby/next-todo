@@ -13,7 +13,8 @@ const DeleteButton = ({ id, page }: { id: string; page: number }) => {
 
   async function deleteTodo() {
     setIsProcessing(true);
-    await todos.deleteTodo(id).then(() => {
+    await todos.deleteTodo(id).then((data) => {
+      console.log(data);
       router.push(`/?page=${page}`);
       setIsProcessing(false);
     });
