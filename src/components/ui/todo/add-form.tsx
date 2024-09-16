@@ -59,7 +59,7 @@ const AddTodoForm = () => {
               <FormLabel>Description</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Writing the essay for tomorrow's exam."
+                  placeholder="Writing an essay for tomorrow's exam."
                   {...field}
                 />
               </FormControl>
