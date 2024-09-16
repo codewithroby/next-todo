@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { TodosList, TodoListSkeleton } from "~/components/todo-list";
+import { TodosList, TodoListSkeleton } from "~/components/ui/todo/todo-list";
 
 const HomePage = ({
   searchParams,
@@ -15,7 +15,11 @@ const HomePage = ({
       </h1>
 
       <Suspense fallback={<TodoListSkeleton />}>
-        <TodosList page={Number(searchParams?.page) ?? 0} />
+        <TodosList
+          page={
+            isNaN(Number(searchParams?.page)) ? 0 : Number(searchParams?.page)
+          }
+        />
       </Suspense>
     </section>
   </main>
