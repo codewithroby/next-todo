@@ -1,7 +1,13 @@
 import { Suspense } from "react";
 import { TodosList, TodoListSkeleton } from "~/components/todo-list";
 
-const HomePage = () => (
+const HomePage = ({
+  searchParams,
+}: {
+  searchParams?: {
+    page?: number;
+  };
+}) => (
   <main>
     <section className="flex min-h-[100dvh] flex-col items-center justify-center gap-8 py-16 md:py-24">
       <h1 className="handwritten text-4xl font-semibold uppercase">
@@ -9,7 +15,7 @@ const HomePage = () => (
       </h1>
 
       <Suspense fallback={<TodoListSkeleton />}>
-        <TodosList />
+        <TodosList page={Number(searchParams?.page) ?? 0} />
       </Suspense>
     </section>
   </main>

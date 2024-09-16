@@ -33,7 +33,7 @@ const updateTodo = async () =>
       newTimestamp: todos.updatedAt,
     });
 
-const getAll = async () =>
+const getAll = async (page: number = 0) =>
   await db
     .select({
       id: todos.id,
@@ -43,6 +43,7 @@ const getAll = async () =>
     .from(todos)
     .orderBy(desc(todos.pagination_id))
     .limit(5)
+    .offset(page * 5)
     .execute();
 
 const getTotal = async () => await db.select({ count: count() }).from(todos);
