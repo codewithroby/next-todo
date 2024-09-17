@@ -33,3 +33,7 @@ const useTotalTodosContext = () => {
 
   return totalTodosContext;
 };
+
+export default TotalTodosContextProvider;
+
+export { useTotalTodosContext };
