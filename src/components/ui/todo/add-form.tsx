@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { addTodoFormSchema, AddTodoFormSchemaType } from "~/lib/types";
+import { addTodoFormSchema, AddTodoFormSchemaType } from "~/types/todo-form";
 import { useRouter } from "next/navigation";
 
 const AddTodoForm = () => {
