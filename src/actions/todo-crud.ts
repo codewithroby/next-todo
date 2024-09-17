@@ -6,7 +6,7 @@ import { count, eq, desc } from "drizzle-orm";
 import { db } from "~/db";
 import { todos } from "~/db/schema";
 
-import { AddTodoFormSchemaType } from "~/lib/types";
+import { AddTodoFormSchemaType } from "~/types/todo-form";
 import { revalidatePath } from "next/cache";
 
 const addTodo = async (values: z.infer<AddTodoFormSchemaType>) =>
