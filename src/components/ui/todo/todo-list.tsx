@@ -21,8 +21,12 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
           >
             <div className="flex items-center gap-4">
               <span className="w-10">{index + 1 + 5 * (page - 1)}</span>
-              <span className="w-1/4">{todo.title}</span>
-              <p className="flex-1">{todo.description}</p>
+              <div className="flex flex-1 flex-col gap-2">
+                <span className="handwritten text-lg font-semibold uppercase">
+                  {todo.title}
+                </span>
+                <p>{todo.description}</p>
+              </div>
               <DeleteButton id={todo.id} page={page} />
             </div>
           </div>
