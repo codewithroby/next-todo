@@ -10,13 +10,13 @@ const TodoPagination = ({ page, total }: { page: number; total: number }) => {
 
   const handlePreviousPage = () => {
     if (page > 0) {
-      router.push(`/?page=${page - 1}`);
+      router.replace(`/?page=${page - 1}`);
     }
   };
 
   const handleNextPage = () => {
     if (page < totalPages) {
-      router.push(`/?page=${page + 1}`);
+      router.replace(`/?page=${page + 1}`);
     }
   };
 
