@@ -20,7 +20,7 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
             key={index}
           >
             <div className="flex items-center gap-4">
-              <span className="w-10">{index + 1}</span>
+              <span className="w-10">{index + 1 + 5 * (page - 1)}</span>
               <span className="w-1/4">{todo.title}</span>
               <p className="flex-1">{todo.description}</p>
               <DeleteButton id={todo.id} page={page} />
