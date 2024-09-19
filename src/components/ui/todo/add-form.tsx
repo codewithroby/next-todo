@@ -30,9 +30,11 @@ const AddTodoForm = () => {
   });
 
   async function onSubmit(values: z.infer<AddTodoFormSchemaType>) {
-    await addTodo(values).then(() => {
-      router.push("/");
-    });
+    if (!form.formState.isSubmitting) {
+      await addTodo(values).then(() => {
+        router.push("/");
+      });
+    }
   }
 
   return (
