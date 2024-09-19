@@ -59,8 +59,8 @@ const getAll = async (page: number = 1) =>
     })
     .from(todos)
     .orderBy(desc(todos.pagination_id))
-    .limit(5)
-    .offset((page > 0 ? page - 1 : 0) * 5)
+    .limit(3)
+    .offset((page > 0 ? page - 1 : 0) * 3)
     .execute();
 
 const getTotal = async () => await db.select({ count: count() }).from(todos);

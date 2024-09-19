@@ -20,7 +20,7 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
             key={index}
           >
             <div className="flex items-center gap-4">
-              <span className="w-10">{index + 1 + 5 * (page - 1)}</span>
+              <span className="w-10">{index + 1 + 3 * (page - 1)}</span>
               <div className="flex flex-1 flex-col gap-2">
                 <span className="handwritten text-lg font-semibold uppercase">
                   {todo.title}
@@ -40,7 +40,7 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
 const TodoListSkeleton = () => (
   <div className="container max-w-4xl">
     <div className="flex flex-col rounded-md bg-white shadow-sm">
-      {[...Array(5)].map((_, index) => (
+      {[...Array(3)].map((_, index) => (
         <div
           className={cn("p-4", {
             "bg-slate-50": isOdd(index),
