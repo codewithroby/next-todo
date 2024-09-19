@@ -49,10 +49,13 @@ const TodoListSkeleton = () => (
           })}
           key={index}
         >
-          <div className="flex animate-pulse gap-4">
+          <div className="flex animate-pulse items-center gap-4">
             <span className="rounded-md bg-gray-200 px-6 py-3"></span>
-            <span className="w-1/4 rounded-md bg-gray-200 px-6 py-3"></span>
-            <p className="flex-1 rounded-md bg-gray-200 px-6 py-3"></p>
+            <div className="flex flex-1 flex-col gap-2">
+              <span className="w-1/4 rounded-md bg-gray-200 px-6 py-3"></span>
+              <p className="flex-1 rounded-md bg-gray-200 px-6 py-2"></p>
+            </div>
+            <span className="rounded-md bg-gray-200 p-4"></span>
           </div>
         </div>
       ))}
