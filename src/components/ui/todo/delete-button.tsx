@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { IoTrashOutline } from "react-icons/io5";
 import { ImSpinner9 } from "react-icons/im";
 import * as todos from "~/actions/todo-crud";
 import { Button } from "~/components/ui/button";
-import { useRouter } from "next/navigation";
 
 const DeleteButton = ({ id, page }: { id: string; page: number }) => {
   const router = useRouter();
