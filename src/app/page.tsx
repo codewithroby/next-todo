@@ -17,7 +17,9 @@ const HomePage = ({
       <Suspense fallback={<TodoListSkeleton />}>
         <TodosList
           page={
-            isNaN(Number(searchParams?.page)) ? 0 : Number(searchParams?.page)
+            isNaN(Number(searchParams?.page)) || Number(searchParams?.page) < 1
+              ? 1
+              : Number(searchParams?.page)
           }
         />
       </Suspense>
