@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Macondo } from "next/font/google";
 import { Header } from "~/components/ui/header";
 import TotalTodosContextProvider from "~/context/total-todos-context";
@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   title: "Next TODO",
   description:
     "Next TODO is a simple task manager that stores your lists securely in PostgreSQL instead of just locally. Access your tasks from anywhere with server-side reliability and seamless syncing.",
+};
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
