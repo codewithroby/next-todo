@@ -4,10 +4,12 @@ import { DeleteButton } from "~/components/ui/todo/delete-button";
 import { TodoPagination } from "~/components/ui/todo/pagination";
 
 const TodosList = async ({ page = 1 }: { page: number }) => {
-  const todosList = await todos.getAll(page);
   const totalTodos = await todos.getTotal().then((total) => {
     return total[0].count;
   });
+  const totalPages = Math.ceil(totalTodos / 3);
+  if (page > totalPages) page = totalPages;
+  const todosList = await todos.getAll(page);
 
   return (
     <div className="container max-w-4xl space-y-4">
@@ -32,7 +34,7 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
           </div>
         ))}
       </div>
-      <TodoPagination page={page} total={totalTodos} />
+      <TodoPagination page={page} totalPages={totalPages} />
     </div>
   );
 };

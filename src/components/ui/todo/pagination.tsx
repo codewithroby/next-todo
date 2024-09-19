@@ -4,8 +4,13 @@ import { useRouter } from "next/navigation";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { Button } from "~/components/ui/button";
 
-const TodoPagination = ({ page, total }: { page: number; total: number }) => {
-  const totalPages = Math.ceil(total / 3);
+const TodoPagination = ({
+  page,
+  totalPages,
+}: {
+  page: number;
+  totalPages: number;
+}) => {
   const router = useRouter();
 
   const handlePreviousPage = () => {
