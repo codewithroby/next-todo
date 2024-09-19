@@ -27,7 +27,7 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
                 </span>
                 <p>{todo.description}</p>
               </div>
-              <DeleteButton id={todo.id} page={page} />
+              <DeleteButton id={todo.id} page={page} key={todo.id} />
             </div>
           </div>
         ))}
