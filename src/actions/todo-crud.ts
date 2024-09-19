@@ -17,7 +17,11 @@ const addTodo = async (values: z.infer<AddTodoFormSchemaType>) =>
       description: values.description,
     })
     .then(() => {
-      revalidatePath("/", "page");
+      revalidatePath("/");
+      revalidatePath("/add-new");
+    })
+    .then(() => {
+      return true;
     });
 
 const updateTodo = async () =>
@@ -41,7 +45,8 @@ const deleteTodo = async (id: string) =>
       deletedId: todos.id,
     })
     .then((data) => {
-      revalidatePath("/", "page");
+      revalidatePath("/");
+      revalidatePath("/add-new");
       return data;
     });
 
