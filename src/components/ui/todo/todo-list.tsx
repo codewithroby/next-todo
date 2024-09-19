@@ -1,12 +1,16 @@
 import * as todos from "~/actions/todo-crud";
 import { cn, isOdd } from "~/lib/utils";
 import { DeleteButton } from "~/components/ui/todo/delete-button";
+import { TodoPagination } from "~/components/ui/todo/pagination";
 
-const TodosList = async ({ page = 0 }: { page: number }) => {
+const TodosList = async ({ page = 1 }: { page: number }) => {
   const todosList = await todos.getAll(page);
+  const totalTodos = await todos.getTotal().then((total) => {
+    return total[0].count;
+  });
 
   return (
-    <div className="container max-w-4xl">
+    <div className="container max-w-4xl space-y-4">
       <div className="flex flex-col rounded-md bg-white shadow-sm">
         {todosList.map((todo, index) => (
           <div
@@ -24,6 +28,7 @@ const TodosList = async ({ page = 0 }: { page: number }) => {
           </div>
         ))}
       </div>
+      <TodoPagination page={page} total={totalTodos} />
     </div>
   );
 };
