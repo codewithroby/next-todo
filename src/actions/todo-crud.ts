@@ -50,7 +50,7 @@ const deleteTodo = async (id: string) =>
       return data;
     });
 
-const getAll = async (page: number = 0) =>
+const getAll = async (page: number = 1) =>
   await db
     .select({
       id: todos.id,
@@ -60,7 +60,7 @@ const getAll = async (page: number = 0) =>
     .from(todos)
     .orderBy(desc(todos.pagination_id))
     .limit(5)
-    .offset(page * 5)
+    .offset((page > 0 ? page - 1 : 0) * 5)
     .execute();
 
 const getTotal = async () => await db.select({ count: count() }).from(todos);
