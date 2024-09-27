@@ -22,10 +22,7 @@ const HomePage = ({
         <Suspense fallback={<TodoListSkeleton />} key={page}>
           <TodosList page={page} />
         </Suspense>
-        <Suspense
-          fallback={<TodoPaginationSkeleton />}
-          key={`pagination-${page}`}
-        >
+        <Suspense fallback={<TodoPaginationSkeleton />}>
           <PaginationWrapper page={page} />
         </Suspense>
       </section>
