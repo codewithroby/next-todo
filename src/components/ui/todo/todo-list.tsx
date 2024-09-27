@@ -1,14 +1,8 @@
 import * as todos from "~/actions/todo-crud";
 import { cn, isOdd } from "~/lib/utils";
 import { DeleteButton } from "~/components/ui/todo/delete-button";
-import { TodoPagination } from "~/components/ui/todo/pagination";
 
 const TodosList = async ({ page = 1 }: { page: number }) => {
-  const totalTodos = await todos.getTotal().then((total) => {
-    return total[0].count;
-  });
-  const totalPages = Math.ceil(totalTodos / 3);
-  if (page > totalPages) page = totalPages;
   const todosList = await todos.getAll(page);
 
   return (
@@ -34,7 +28,6 @@ const TodosList = async ({ page = 1 }: { page: number }) => {
           </div>
         ))}
       </div>
-      <TodoPagination page={page} totalPages={totalPages} />
     </div>
   );
 };
@@ -52,8 +45,8 @@ const TodoListSkeleton = () => (
           <div className="flex animate-pulse items-center gap-4">
             <span className="rounded-md bg-gray-200 px-6 py-3"></span>
             <div className="flex flex-1 flex-col gap-2">
-              <span className="w-1/4 rounded-md bg-gray-200 px-6 py-3"></span>
-              <p className="flex-1 rounded-md bg-gray-200 px-6 py-2"></p>
+              <span className="w-1/4 rounded-md bg-gray-200 px-6 pt-[28px]"></span>
+              <p className="flex-1 rounded-md bg-gray-200 px-6 pt-[24px]"></p>
             </div>
             <span className="rounded-md bg-gray-200 p-4"></span>
           </div>

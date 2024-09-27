@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { TodoPaginationSkeleton } from "~/components/ui/todo/pagination";
+import { PaginationWrapper } from "~/components/ui/todo/pagination-wrapper";
 import { TodosList, TodoListSkeleton } from "~/components/ui/todo/todo-list";
 
 const HomePage = ({
@@ -8,10 +10,7 @@ const HomePage = ({
     page?: number;
   };
 }) => {
-  const page =
-    isNaN(Number(searchParams?.page)) || Number(searchParams?.page) < 1
-      ? 1
-      : Number(searchParams?.page);
+  const page = Math.max(1, Number(searchParams?.page) || 1);
 
   return (
     <main>
@@ -22,6 +21,12 @@ const HomePage = ({
 
         <Suspense fallback={<TodoListSkeleton />} key={page}>
           <TodosList page={page} />
+        </Suspense>
+        <Suspense
+          fallback={<TodoPaginationSkeleton />}
+          key={`pagination-${page}`}
+        >
+          <PaginationWrapper page={page} />
         </Suspense>
       </section>
     </main>
