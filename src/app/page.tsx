@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { TodoPaginationSkeleton } from "~/components/ui/todo/pagination";
+import { TodoPaginationSkeleton } from "~/components/ui/todo/todo-pagination-skeleton";
 import { PaginationWrapper } from "~/components/ui/todo/pagination-wrapper";
 import { TodosList, TodoListSkeleton } from "~/components/ui/todo/todo-list";
 
@@ -22,7 +22,10 @@ const HomePage = ({
         <Suspense fallback={<TodoListSkeleton />} key={page}>
           <TodosList page={page} />
         </Suspense>
-        <Suspense fallback={<TodoPaginationSkeleton />}>
+        <Suspense
+          fallback={<TodoPaginationSkeleton />}
+          key="PaginationSuspense"
+        >
           <PaginationWrapper page={page} />
         </Suspense>
       </section>
