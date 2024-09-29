@@ -7,15 +7,8 @@ const PaginationWrapper = async ({ page }: { page: number }) => {
   });
   const totalPages = Math.ceil(totalTodos / 3);
   if (page > totalPages) page = totalPages;
-  const gg: number = await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(3);
-    }, 3000);
-  });
 
-  return (
-    <TodoPagination page={page} totalPages={totalPages} key={page} gg={gg} />
-  );
+  return <TodoPagination page={page} totalPages={totalPages} key={page} />;
 };
 
 export { PaginationWrapper };

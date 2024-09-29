@@ -5,11 +5,9 @@ import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { Button } from "~/components/ui/button";
 
 const TodoPagination = async ({
-  gg,
   page = 1,
   totalPages,
 }: {
-  gg: number;
   page: number;
   totalPages: number;
 }) => {
