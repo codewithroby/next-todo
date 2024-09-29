@@ -24,7 +24,7 @@ const HomePage = ({
         </Suspense>
         <Suspense
           fallback={<TodoPaginationSkeleton />}
-          key="PaginationSuspense"
+          key={`pagination${page}`}
         >
           <PaginationWrapper page={page} />
         </Suspense>
